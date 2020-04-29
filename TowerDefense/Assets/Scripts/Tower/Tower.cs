@@ -27,11 +27,10 @@ public class Tower : MonoBehaviour {
 			}
 		} else {
 			if(attackCounter <= 0) {
+				Debug.Log("attack");
 				isAttacking = true;
 				//reset attack counter
 				attackCounter = timeBetweenAttacks;
-			} else {
-				isAttacking = false;
 			}
 
 			if(Vector2.Distance(transform.localPosition, targetEnemy.transform.localPosition) > attackRadius) {
@@ -42,9 +41,9 @@ public class Tower : MonoBehaviour {
 
 	void FixedUpdate() {
 		if(isAttacking) {
+			Debug.Log("launched attack");
 			Attack();
 		}
-
 	}
 
 	public void Attack() {

@@ -56,7 +56,9 @@ public class Enemy : MonoBehaviour {
 			GameManager.Instance.IsWaveOver();
 		} else if(other.tag == "Projectile") {
 			Projectile newP = other.gameObject.GetComponent<Projectile>();
-			EnemyHit(newP.AttackStrength);
+			if(newP != null) {
+				EnemyHit(newP.AttackStrength);
+			}
 			Destroy(other.gameObject);
 		}
 	}
